@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
   <style>
-    /* ---------- الخط ---------- */
     @font-face {
       font-family: 'MyArFont';
       src: url('https://cdn.jsdelivr.net/gh/alialiww988-commits/algzara@main/Alarabiya%20Normal%20Font.ttf') format('truetype');
@@ -89,7 +88,7 @@
       width: 100%;
       height: 550px;
       overflow: hidden;
-      padding-top: 60px; /* لتجنب تغطية الشريط */
+      padding-top: 60px;
     }
 
     #vanta {
@@ -104,7 +103,6 @@
     .header-content {
       position: relative;
       z-index: 1;
-      color: white;
       text-align: center;
       height: 100%;
       display: flex;
@@ -201,35 +199,19 @@
 
     main {
       padding: 50px;
-      color:white;
     }
   </style>
 </head>
 <body>
 
-  <!-- ---------- شريط التنقل بالصور ---------- -->
+  <!-- ---------- شريط التنقل ---------- -->
   <nav>
     <ul>
-      <li>
-        <a href="#home"><img src="https://i.ibb.co/6cHZWgMv/image.png" alt="Home"></a>
-        <span>الرئيسية</span>
-      </li>
-      <li>
-        <a href="#services"><img src="https://i.ibb.co/xsG1t9v/services.png" alt="Services"></a>
-        <span>خدماتنا</span>
-      </li>
-      <li>
-        <a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a>
-        <span>عن الشركة</span>
-      </li>
-      <li>
-        <a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a>
-        <span>أعمالنا</span>
-      </li>
-      <li>
-        <a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a>
-        <span>تواصل معنا</span>
-      </li>
+      <li><a href="#home"><img src="https://i.ibb.co/6cHZWgMv/image.png" alt="Home"></a><span>الرئيسية</span></li>
+      <li><a href="#services"><img src="https://i.ibb.co/xsG1t9v/services.png" alt="Services"></a><span>خدماتنا</span></li>
+      <li><a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a><span>عن الشركة</span></li>
+      <li><a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a><span>أعمالنا</span></li>
+      <li><a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a><span>تواصل معنا</span></li>
     </ul>
   </nav>
 
@@ -242,29 +224,20 @@
     </div>
   </header>
 
-  <!-- ---------- قسم المستخدمين / عداد ---------- -->
+  <!-- ---------- عداد الزبائن ---------- -->
   <div class="users-section">
     <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
     <div class="counter" id="userCounter">0</div>
     <p>زبون</p>
   </div>
 
-  <!-- ---------- قسم المميزات ---------- -->
+  <!-- ---------- المميزات ---------- -->
   <div class="features">
     <h2>مميزاتنا</h2>
     <div class="feature-cards">
-      <div class="feature-card">
-        <img src="https://via.placeholder.com/250x150" alt="Feature 1">
-        <p>الميزة الأولى</p>
-      </div>
-      <div class="feature-card">
-        <img src="https://via.placeholder.com/250x150" alt="Feature 2">
-        <p>الميزة الثانية</p>
-      </div>
-      <div class="feature-card">
-        <img src="https://via.placeholder.com/250x150" alt="Feature 3">
-        <p>الميزة الثالثة</p>
-      </div>
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 1"><p>الميزة الأولى</p></div>
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 2"><p>الميزة الثانية</p></div>
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 3"><p>الميزة الثالثة</p></div>
     </div>
   </div>
 
@@ -282,7 +255,7 @@
     <p>بيانات الاتصال أو نموذج التواصل.</p>
   </main>
 
-  <!-- ---------- سكريبتات Vanta وعداد ---------- -->
+  <!-- ---------- سكريبتات ---------- -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
   <script>
@@ -294,7 +267,28 @@
       gyroControls: false,
       minHeight: 200.00,
       minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
+      scale: 1.0,
+      scaleMobile: 1.0,
       color: 0x1a73e8,
-      backgroundColor: 0x
+      backgroundColor: 0x111111,
+      points: 12.0,
+      maxDistance: 20.0,
+      spacing: 18.0
+    });
+
+    // عداد الزبائن مع أنيميشن
+    let count = 0;
+    const target = 230;
+    const counter = document.getElementById('userCounter');
+
+    function updateCounter() {
+      if(count < target){
+        count++;
+        counter.innerText = count;
+        requestAnimationFrame(updateCounter);
+      }
+    }
+    updateCounter();
+  </script>
+</body>
+</html>
