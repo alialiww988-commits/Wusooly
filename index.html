@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
   <style>
-    /* استدعاء الخط */
     @font-face {
       font-family: 'MyArFont';
       src: url('https://github.com/alialiww988-commits/algzara/raw/main/Alarabiya%20Normal%20Font.ttf') format('truetype');
@@ -63,7 +62,6 @@
       margin: 0;
     }
 
-    /* قسم المستخدم والزبائن */
     .users-section {
       text-align: center;
       padding: 50px 20px;
@@ -80,7 +78,6 @@
       margin-bottom: 30px;
     }
 
-    /* قسم المميزات */
     .features {
       text-align: center;
       padding: 50px 20px;
@@ -126,20 +123,18 @@
 <header>
   <div id="vanta"></div>
   <div class="header-content">
-    <!-- اللوغو الصحيح فوق النص -->
+    <!-- اللوجو الصحيح فوق النص -->
     <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
     <p>أرباح بلا حدود</p>
   </div>
 </header>
 
-<!-- قسم المستخدمين -->
 <div class="users-section">
   <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
   <div class="counter" id="userCounter">0</div>
   <p>زبون</p>
 </div>
 
-<!-- قسم المميزات -->
 <div class="features">
   <h2>مميزاتنا</h2>
   <div class="feature-cards">
@@ -162,7 +157,6 @@
 <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
 
 <script>
-  // تفعيل تأثير Vanta.net
   VANTA.NET({
     el: "#vanta",
     mouseControls: true,
@@ -179,7 +173,6 @@
     spacing: 18.00
   });
 
-  // عداد زبائن مع أنيميشن
   const counter = document.getElementById('userCounter');
   let count = 0;
   const target = 230;
