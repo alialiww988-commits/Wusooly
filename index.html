@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WUSOOLY</title>
 
+  <!-- أيقونة التبويب -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
+
   <style>
+    /* ---------- الخط ---------- */
     @font-face {
       font-family: 'MyArFont';
       src: url('https://cdn.jsdelivr.net/gh/alialiww988-commits/algzara@main/Alarabiya%20Normal%20Font.ttf') format('truetype');
@@ -19,6 +23,7 @@
       padding: 0;
       font-family: 'MyArFont', sans-serif;
       background: #0a0a0a;
+      color: white;
     }
 
     /* ---------- شريط التنقل ---------- */
@@ -48,7 +53,7 @@
     }
 
     nav ul li img {
-      width: 50px; /* حجم أيقونة اللوجو */
+      width: 50px;
       height: 50px;
       cursor: pointer;
       transition: transform 0.3s ease;
@@ -58,7 +63,6 @@
       transform: scale(1.2);
     }
 
-    /* Tooltip */
     nav ul li span {
       position: absolute;
       bottom: -35px;
@@ -79,12 +83,13 @@
       opacity: 1;
     }
 
+    /* ---------- الهيدر ---------- */
     header {
       position: relative;
       width: 100%;
       height: 550px;
       overflow: hidden;
-      padding-top: 60px; /* لتجنب تغطية الشريط */
+      padding-top: 60px;
     }
 
     #vanta {
@@ -137,6 +142,63 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
+    /* ---------- قسم المستخدمين / العداد ---------- */
+    .users-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .users-section img {
+      max-width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .counter {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* ---------- قسم المميزات ---------- */
+    .features {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .features h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .feature-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: #1a1a1a;
+      padding: 20px;
+      width: 250px;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      font-size: 1.2em;
+    }
+
     main {
       padding: 50px;
       color:white;
@@ -175,68 +237,51 @@
   <header id="home">
     <div id="vanta"></div>
     <div class="header-content">
+      <!-- اللوجو الصحيح فوق النص -->
       <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
       <p>أرباح بلا حدود</p>
     </div>
   </header>
 
+  <!-- ---------- قسم المستخدمين / عداد ---------- -->
   <div class="users-section">
-  <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
-  <div class="counter" id="userCounter">0</div>
-  <p>زبون</p>
-</div>
+    <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
+    <div class="counter" id="userCounter">0</div>
+    <p>زبون</p>
+  </div>
 
-<div class="features">
-  <h2>مميزاتنا</h2>
-  <div class="feature-cards">
-    <div class="feature-card">
-      <img src="https://via.placeholder.com/250x150" alt="Feature 1">
-      <p>الميزة الأولى</p>
-    </div>
-    <div class="feature-card">
-      <img src="https://via.placeholder.com/250x150" alt="Feature 2">
-      <p>الميزة الثانية</p>
-    </div>
-    <div class="feature-card">
-      <img src="https://via.placeholder.com/250x150" alt="Feature 3">
-      <p>الميزة الثالثة</p>
+  <!-- ---------- قسم المميزات ---------- -->
+  <div class="features">
+    <h2>مميزاتنا</h2>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/250x150" alt="Feature 1">
+        <p>الميزة الأولى</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/250x150" alt="Feature 2">
+        <p>الميزة الثانية</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://via.placeholder.com/250x150" alt="Feature 3">
+        <p>الميزة الثالثة</p>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
+  <main>
+    <h2 id="services">خدماتنا</h2>
+    <p>يمكنك إضافة خدماتك، قسم عن الشركة، أو أي معلومات أخرى هنا.</p>
 
-<script>
-  VANTA.NET({
-    el: "#vanta",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x1a73e8,
-    backgroundColor: 0x0,
-    points: 12.00,
-    maxDistance: 20.00,
-    spacing: 18.00
-  });
+    <h2 id="about">عن الشركة</h2>
+    <p>وصف الشركة ومعلومات عنها.</p>
 
-  const counter = document.getElementById('userCounter');
-  let count = 0;
-  const target = 230;
-  const speed = 20;
-  function updateCounter() {
-    if (count < target) {
-      count++;
-      counter.innerText = "+" + count;
-      setTimeout(updateCounter, speed);
-    }
-  }
-  updateCounter();
-</script>
+    <h2 id="portfolio">أعمالنا</h2>
+    <p>أمثلة عن الأعمال السابقة.</p>
 
-</body>
-</html>
+    <h2 id="contact">تواصل معنا</h2>
+    <p>بيانات الاتصال أو نموذج التواصل.</p>
+  </main>
+
+  <!-- ---------- السكريبتات ---------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js
