@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
   <style>
+    /* استدعاء الخط */
     @font-face {
       font-family: 'MyArFont';
       src: url('https://github.com/alialiww988-commits/algzara/raw/main/Alarabiya%20Normal%20Font.ttf') format('truetype');
@@ -125,7 +126,8 @@
 <header>
   <div id="vanta"></div>
   <div class="header-content">
-    <img src="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png" alt="WUSOOLY Logo">
+    <!-- اللوغو الصحيح فوق النص -->
+    <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
     <p>أرباح بلا حدود</p>
   </div>
 </header>
@@ -180,8 +182,8 @@
   // عداد زبائن مع أنيميشن
   const counter = document.getElementById('userCounter');
   let count = 0;
-  const target = 230; // العدد النهائي
-  const speed = 20; // السرعة
+  const target = 230;
+  const speed = 20;
   function updateCounter() {
     if (count < target) {
       count++;
