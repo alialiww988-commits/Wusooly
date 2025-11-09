@@ -1,26 +1,313 @@
-/* شريط التنقل */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  transition: top 0.4s ease, background 0.4s;
-}
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WUSOOLY</title>
 
-body.light-mode nav {
-  background: rgba(255,255,255,0.5); /* أبيض شفاف */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
+  <!-- أيقونة التبويب -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
-/* أيقونة عداد الزبائن */
-.users-section img {
-  max-width: 60px; /* صغر الحجم */
-  margin-bottom: 15px;
-}
+  <style>
+    @font-face {
+      font-family: 'MyArFont';
+      src: url('https://cdn.jsdelivr.net/gh/alialiww988-commits/algzara@main/Alarabiya%20Normal%20Font.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'MyArFont', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body.light-mode {
+      background: #f9f9f9;
+      color: #000;
+    }
+
+    /* ---------- شريط التنقل ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      transition: top 0.4s ease, background 0.4s, box-shadow 0.4s;
+    }
+    nav.hidden { top: -80px; }
+
+    body.light-mode nav {
+      background: rgba(255,255,255,0.5);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav ul li { position: relative; }
+
+    nav ul li img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li img:hover { transform: scale(1.2); }
+
+    nav ul li span {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+    nav ul li:hover span { opacity: 1; }
+
+    /* زر تبديل المود */
+    .mode-toggle {
+      position: absolute;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mode-toggle img {
+      width: 35px;
+      height: 35px;
+      transition: transform 0.3s;
+    }
+    .mode-toggle:hover { transform: scale(1.1); }
+
+    /* ---------- الهيدر ---------- */
+    header {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      overflow: hidden;
+      padding-top: 60px;
+    }
+
+    #vanta {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-content img {
+      max-width: 350px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: logoAppear 1s forwards 0.5s;
+    }
+
+    .header-content p {
+      font-size: 2em;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: textAppear 1.5s forwards 1s;
+    }
+
+    @keyframes logoAppear { to { opacity: 1; transform: scale(1); } }
+    @keyframes textAppear { to { opacity: 1; transform: translateY(0); } }
+
+    /* ---------- قسم المستخدمين / العداد ---------- */
+    .users-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .users-section img {
+      max-width: 60px; /* صغر أيقونة عداد الزبائن */
+      margin-bottom: 15px;
+    }
+
+    .counter { font-size: 2em; font-weight: bold; margin-bottom: 10px; }
+
+    /* ---------- المميزات ---------- */
+    .features {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .feature-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: #1a1a1a;
+      padding: 20px;
+      width: 250px;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-10px); }
+    body.light-mode .feature-card { background: #ffffff; }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    main { padding: 50px; }
+  </style>
+</head>
+<body>
+
+  <!-- شريط التنقل -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home"><img src="https://i.ibb.co/twW4NVj6/image.png" alt="Home"></a><span>الرئيسية</span></li>
+      <li><a href="#services"><img src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png" alt="Services"></a><span>خدماتنا</span></li>
+      <li><a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a><span>عن الشركة</span></li>
+      <li><a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a><span>أعمالنا</span></li>
+      <li><a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a><span>تواصل معنا</span></li>
+    </ul>
+    <!-- زر تبديل المود -->
+    <button class="mode-toggle" id="modeToggle">
+      <img id="modeIcon" src="https://i.ibb.co/CprDWJ3M/LIGHTMODE.png" alt="toggle mode">
+    </button>
+  </nav>
+
+  <!-- الهيدر -->
+  <header id="home">
+    <div id="vanta"></div>
+    <div class="header-content">
+      <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
+      <p>أرباح بلا حدود</p>
+    </div>
+  </header>
+
+  <!-- العداد -->
+  <div class="users-section">
+    <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
+    <div class="counter" id="userCounter">0</div>
+    <p>زبون</p>
+  </div>
+
+  <!-- المميزات -->
+  <div class="features" id="services">
+    <h2>مميزاتنا</h2>
+    <div class="feature-cards">
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150"><p>الميزة الأولى</p></div>
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150"><p>الميزة الثانية</p></div>
+      <div class="feature-card"><img src="https://via.placeholder.com/250x150"><p>الميزة الثالثة</p></div>
+    </div>
+  </div>
+
+  <main>
+    <h2 id="about">عن الشركة</h2>
+    <p>وصف الشركة ومعلومات عنها.</p>
+    <h2 id="portfolio">أعمالنا</h2>
+    <p>أمثلة عن الأعمال السابقة.</p>
+    <h2 id="contact">تواصل معنا</h2>
+    <p>بيانات الاتصال أو نموذج التواصل.</p>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <script>
+    // VANTA
+    let vantaEffect = VANTA.NET({
+      el: "#vanta",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x1a73e8,
+      backgroundColor: 0x111111,
+      points: 12.0,
+      maxDistance: 20.0,
+      spacing: 18.0
+    });
+
+    // عداد الزبائن
+    let count = 0;
+    const target = 230;
+    const counter = document.getElementById('userCounter');
+    function updateCounter() {
+      if (count < target) {
+        count++;
+        counter.innerText = count;
+        requestAnimationFrame(updateCounter);
+      }
+    }
+    updateCounter();
+
+    // شريط التنقل يختفي عند النزول
+    let lastScroll = 0;
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      let current = window.scrollY;
+      navbar.classList.toggle("hidden", current > lastScroll && current > 100);
+      lastScroll = current;
+    });
+
+    // تبديل المود
+    const modeToggle = document.getElementById("modeToggle");
+    const body = document.body;
+    const icon = document.getElementById("modeIcon");
+
+    if(localStorage.getItem("theme") === "light") {
+      body.classList.add("light-mode");
+      icon.src = "https://i.ibb.co/h1J7JqCp/DARKMODE.png";
+      vantaEffect.setOptions({ backgroundColor: 0xeeeeee });
+    }
+
+    modeToggle.addEventListener("click", () => {
+      const isLight = body.classList.toggle("light-mode");
+      icon.src = isLight 
+        ? "https://i.ibb.co/h1J7JqCp/DARKMODE.png"
+        : "https://i.ibb.co/CprDWJ3M/LIGHTMODE.png";
+      vantaEffect.setOptions({ backgroundColor: isLight ? 0xeeeeee : 0x111111 });
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
