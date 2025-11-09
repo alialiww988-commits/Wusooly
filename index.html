@@ -12,18 +12,31 @@
     @font-face {
       font-family: 'MyArFont';
       src: url('https://cdn.jsdelivr.net/gh/alialiww988-commits/algzara@main/Alarabiya%20Normal%20Font.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
       font-display: swap;
+    }
+
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #ffffff;
+      --card-bg: #1a1a1a;
+      --nav-bg: rgba(0,0,0,0.6);
+    }
+
+    body.light-mode {
+      --bg-color: #f9f9f9;
+      --text-color: #000000;
+      --card-bg: #ffffff;
+      --nav-bg: rgba(255,255,255,0.7);
     }
 
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'MyArFont', sans-serif;
-      background: #0a0a0a;
-      color: white;
+      background: var(--bg-color);
+      color: var(--text-color);
       scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
     }
 
     /* ---------- شريط التنقل ---------- */
@@ -34,10 +47,11 @@
       z-index: 1000;
       display: flex;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      background: var(--nav-bg);
       backdrop-filter: blur(10px);
       padding: 10px 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
       transition: top 0.4s ease, background 0.4s ease;
     }
 
@@ -90,227 +104,17 @@
       opacity: 1;
     }
 
-    /* ---------- الهيدر ---------- */
-    header {
-      position: relative;
-      width: 100%;
-      height: 550px;
-      overflow: hidden;
-      padding-top: 60px;
-    }
-
-    #vanta {
+    /* زر تبديل الوضع */
+    .mode-toggle {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      height: 100%;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--card-bg);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .header-content img {
-      max-width: 350px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: scale(0.5);
-      animation: logoAppear 1s forwards;
-      animation-delay: 0.5s;
-    }
-
-    .header-content p {
-      font-size: 2em;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: textAppear 1.5s forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes logoAppear {
-      0% { opacity: 0; transform: scale(0.5); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes textAppear {
-      0% { opacity: 0; transform: translateY(50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ---------- قسم المستخدمين / العداد ---------- */
-    .users-section {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .users-section img {
-      max-width: 100px;
-      margin-bottom: 15px;
-    }
-
-    .counter {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    /* ---------- قسم المميزات ---------- */
-    .features {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .features h2 {
-      font-size: 2em;
-      margin-bottom: 40px;
-    }
-
-    .feature-cards {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .feature-card {
-      background: #1a1a1a;
-      padding: 20px;
-      width: 250px;
-      border-radius: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
-    }
-
-    .feature-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .feature-card p {
-      font-size: 1.2em;
-    }
-
-    main {
-      padding: 50px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ---------- شريط التنقل ---------- -->
-  <nav id="navbar">
-    <ul>
-      <li><a href="#home"><img src="https://i.ibb.co/twW4NVj6/image.png" alt="Home"></a><span>الرئيسية</span></li>
-      <li><a href="#services"><img src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png" alt="Services"></a><span>خدماتنا</span></li>
-      <li><a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a><span>عن الشركة</span></li>
-      <li><a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a><span>أعمالنا</span></li>
-      <li><a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a><span>تواصل معنا</span></li>
-    </ul>
-  </nav>
-
-  <!-- ---------- الهيدر ---------- -->
-  <header id="home">
-    <div id="vanta"></div>
-    <div class="header-content">
-      <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
-      <p>أرباح بلا حدود</p>
-    </div>
-  </header>
-
-  <!-- ---------- عداد الزبائن ---------- -->
-  <div class="users-section">
-    <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
-    <div class="counter" id="userCounter">0</div>
-    <p>زبون</p>
-  </div>
-
-  <!-- ---------- المميزات ---------- -->
-  <div class="features">
-    <h2>مميزاتنا</h2>
-    <div class="feature-cards">
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 1"><p>الميزة الأولى</p></div>
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 2"><p>الميزة الثانية</p></div>
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 3"><p>الميزة الثالثة</p></div>
-    </div>
-  </div>
-
-  <main>
-    <h2 id="services">خدماتنا</h2>
-    <p>يمكنك إضافة خدماتك، قسم عن الشركة، أو أي معلومات أخرى هنا.</p>
-
-    <h2 id="about">عن الشركة</h2>
-    <p>وصف الشركة ومعلومات عنها.</p>
-
-    <h2 id="portfolio">أعمالنا</h2>
-    <p>أمثلة عن الأعمال السابقة.</p>
-
-    <h2 id="contact">تواصل معنا</h2>
-    <p>بيانات الاتصال أو نموذج التواصل.</p>
-  </main>
-
-  <!-- ---------- سكريبتات ---------- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
-  <script>
-    // VANTA خلفية الهيدر
-    VANTA.NET({
-      el: "#vanta",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0x1a73e8,
-      backgroundColor: 0x111111,
-      points: 12.0,
-      maxDistance: 20.0,
-      spacing: 18.0
-    });
-
-    // عداد الزبائن
-    let count = 0;
-    const target = 230;
-    const counter = document.getElementById('userCounter');
-    function updateCounter() {
-      if(count < target){
-        count++;
-        counter.innerText = count;
-        requestAnimationFrame(updateCounter);
-      }
-    }
-    updateCounter();
-
-    // إخفاء/إظهار شريط التنقل حسب التمرير
-    let lastScroll = 0;
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > lastScroll && currentScroll > 150) {
-        navbar.classList.add('hidden'); // يخفي عند النزول
-      } else {
-        navbar.classList.remove('hidden'); // يظهر عند الصعود
-      }
-      lastScroll = currentScroll;
-    });
-  </script>
-</body>
-</html>
+      align-items: center
