@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WUSOOLY</title>
 
+  <!-- أيقونة التبويب -->
   <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
   <style>
@@ -14,30 +15,21 @@
       font-display: swap;
     }
 
-    :root {
-      --bg: #0a0a0a;
-      --text: #ffffff;
-      --nav-bg: rgba(0,0,0,0.6);
-      --card-bg: #1a1a1a;
-    }
-
-    body.light-mode {
-      --bg: #f9f9f9;
-      --text: #000000;
-      --nav-bg: rgba(255,255,255,0.8);
-      --card-bg: #ffffff;
-    }
-
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'MyArFont', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #0a0a0a;
+      color: white;
       transition: background 0.4s, color 0.4s;
     }
 
-    /* شريط التنقل */
+    body.light-mode {
+      background: #f9f9f9;
+      color: #000;
+    }
+
+    /* ---------- شريط التنقل ---------- */
     nav {
       position: fixed;
       top: 0;
@@ -46,7 +38,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: var(--nav-bg);
+      background: rgba(0,0,0,0.6);
       backdrop-filter: blur(8px);
       padding: 10px 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
@@ -100,11 +92,11 @@
       background: none;
       border: none;
       cursor: pointer;
-      transition: transform 0.3s;
     }
     .mode-toggle img {
       width: 35px;
       height: 35px;
+      transition: transform 0.3s;
     }
     .mode-toggle:hover { transform: scale(1.1); }
 
@@ -178,13 +170,17 @@
     }
 
     .feature-card {
-      background: var(--card-bg);
+      background: #1a1a1a;
       padding: 20px;
       width: 250px;
       border-radius: 15px;
       transition: transform 0.3s;
     }
     .feature-card:hover { transform: translateY(-10px); }
+
+    body.light-mode .feature-card {
+      background: #ffffff;
+    }
 
     .feature-card img {
       width: 100%;
@@ -201,49 +197,30 @@
   <nav id="navbar">
     <ul>
       <li>
-        <a href="#home"><img 
-          src="https://i.ibb.co/twW4NVj6/image.png"
-          data-dark="https://i.ibb.co/twW4NVj6/image.png"
-          data-light="https://i.ibb.co/YjTdc92/image-black.png"
-          alt="Home"></a>
+        <a href="#home"><img src="https://i.ibb.co/twW4NVj6/image.png" alt="Home"></a>
         <span>الرئيسية</span>
       </li>
       <li>
-        <a href="#services"><img 
-          src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png"
-          data-dark="https://i.ibb.co/Wp5yNsGZ/o-lhj.png"
-          data-light="https://i.ibb.co/vX9jmZV/o-lhj-black.png"
-          alt="Services"></a>
+        <a href="#services"><img src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png" alt="Services"></a>
         <span>خدماتنا</span>
       </li>
       <li>
-        <a href="#about"><img 
-          src="https://i.ibb.co/0J9tL0v/about.png"
-          data-dark="https://i.ibb.co/0J9tL0v/about.png"
-          data-light="https://i.ibb.co/q5g8KCB/about-black.png"
-          alt="About"></a>
+        <a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a>
         <span>عن الشركة</span>
       </li>
       <li>
-        <a href="#portfolio"><img 
-          src="https://i.ibb.co/2nV9rXZ/portfolio.png"
-          data-dark="https://i.ibb.co/2nV9rXZ/portfolio.png"
-          data-light="https://i.ibb.co/3n7jhF4/portfolio-black.png"
-          alt="Portfolio"></a>
+        <a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a>
         <span>أعمالنا</span>
       </li>
       <li>
-        <a href="#contact"><img 
-          src="https://i.ibb.co/3Fh1pW7/contact.png"
-          data-dark="https://i.ibb.co/3Fh1pW7/contact.png"
-          data-light="https://i.ibb.co/k5Ntx2G/contact-black.png"
-          alt="Contact"></a>
+        <a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a>
         <span>تواصل معنا</span>
       </li>
     </ul>
 
+    <!-- زر تبديل المود -->
     <button class="mode-toggle" id="modeToggle">
-      <img id="modeIcon" src="https://i.ibb.co/7JdghcR/moon.png" alt="toggle mode">
+      <img id="modeIcon" src="https://i.ibb.co/CprDWJ3M/LIGHTMODE.png" alt="toggle mode">
     </button>
   </nav>
 
@@ -273,12 +250,21 @@
     </div>
   </div>
 
+  <main>
+    <h2 id="about">عن الشركة</h2>
+    <p>وصف الشركة ومعلومات عنها.</p>
+    <h2 id="portfolio">أعمالنا</h2>
+    <p>أمثلة عن الأعمال السابقة.</p>
+    <h2 id="contact">تواصل معنا</h2>
+    <p>بيانات الاتصال أو نموذج التواصل.</p>
+  </main>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
 
   <script>
-    // تفعيل خلفية VANTA
-    VANTA.NET({
+    // تفعيل VANTA
+    let vantaEffect = VANTA.NET({
       el: "#vanta",
       mouseControls: true,
       touchControls: true,
@@ -306,7 +292,7 @@
     }
     updateCounter();
 
-    // إخفاء الشريط عند النزول
+    // شريط التنقل يختفي عند النزول
     let lastScroll = 0;
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
@@ -316,28 +302,22 @@
     });
 
     // تبديل المود
+    const modeToggle = document.getElementById("modeToggle");
     const body = document.body;
     const icon = document.getElementById("modeIcon");
-    const imgs = document.querySelectorAll("nav img[data-dark]");
-    const saved = localStorage.getItem("theme");
 
-    function updateImages(isLight) {
-      imgs.forEach(img => {
-        img.src = isLight ? img.dataset.light : img.dataset.dark;
-      });
-    }
-
-    if (saved === "light") {
+    if(localStorage.getItem("theme") === "light") {
       body.classList.add("light-mode");
-      icon.src = "https://i.ibb.co/PDK9yXt/sun.png";
-      updateImages(true);
+      icon.src = "https://i.ibb.co/h1J7JqCp/DARKMODE.png";
+      vantaEffect.setOptions({ backgroundColor: 0xeeeeee });
     }
 
-    document.getElementById("modeToggle").addEventListener("click", () => {
-      body.classList.toggle("light-mode");
-      const isLight = body.classList.contains("light-mode");
-      icon.src = isLight ? "https://i.ibb.co/CprDWJ3M/LIGHTMODE.png" : "https://i.ibb.co/h1J7JqCp/DARKMODE.png";
-      updateImages(isLight);
+    modeToggle.addEventListener("click", () => {
+      const isLight = body.classList.toggle("light-mode");
+      icon.src = isLight 
+        ? "https://i.ibb.co/h1J7JqCp/DARKMODE.png"
+        : "https://i.ibb.co/CprDWJ3M/LIGHTMODE.png";
+      vantaEffect.setOptions({ backgroundColor: isLight ? 0xeeeeee : 0x111111 });
       localStorage.setItem("theme", isLight ? "light" : "dark");
     });
   </script>
