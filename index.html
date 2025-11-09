@@ -4,15 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WUSOOLY</title>
-
-  <!-- أيقونة التبويب -->
   <link rel="icon" type="image/png" href="https://i.ibb.co/k2LNk9cj/resize-image-68e40aefba69c.png">
 
   <style>
     @font-face {
       font-family: 'MyArFont';
       src: url('https://cdn.jsdelivr.net/gh/alialiww988-commits/algzara@main/Alarabiya%20Normal%20Font.ttf') format('truetype');
-      font-display: swap;
     }
 
     :root {
@@ -38,14 +35,7 @@
       transition: background 0.5s, color 0.5s;
     }
 
-    img {
-      transition: filter 0.4s ease;
-    }
-    body.light-mode img {
-      filter: brightness(0) invert(1);
-    }
-
-    /* ---------- شريط التنقل ---------- */
+    /* شريط التنقل */
     nav {
       position: fixed;
       top: 0;
@@ -106,7 +96,6 @@
       opacity: 1;
     }
 
-    /* زر المود */
     .mode-toggle {
       position: absolute;
       right: 20px;
@@ -127,232 +116,102 @@
     .mode-toggle img {
       width: 24px;
       height: 24px;
-      filter: none !important;
-    }
-
-    /* ---------- الهيدر ---------- */
-    header {
-      position: relative;
-      width: 100%;
-      height: 550px;
-      overflow: hidden;
-      padding-top: 60px;
-    }
-
-    #vanta {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .header-content img {
-      max-width: 350px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: scale(0.5);
-      animation: logoAppear 1s forwards;
-      animation-delay: 0.5s;
-    }
-
-    .header-content p {
-      font-size: 2em;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: textAppear 1.5s forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes logoAppear {
-      0% { opacity: 0; transform: scale(0.5); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes textAppear {
-      0% { opacity: 0; transform: translateY(50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ---------- عداد الزبائن ---------- */
-    .users-section {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .users-section img {
-      max-width: 100px;
-      margin-bottom: 15px;
-    }
-
-    .counter {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    /* ---------- المميزات ---------- */
-    .features {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .features h2 {
-      font-size: 2em;
-      margin-bottom: 40px;
-    }
-
-    .feature-cards {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .feature-card {
-      background: var(--card);
-      padding: 20px;
-      width: 250px;
-      border-radius: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 15px rgba(255,255,255,0.1);
-    }
-
-    .feature-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .feature-card p {
-      font-size: 1.2em;
-    }
-
-    main {
-      padding: 50px;
     }
   </style>
 </head>
 <body>
 
-  <!-- ---------- شريط التنقل ---------- -->
   <nav id="navbar">
     <ul>
-      <li><a href="#home"><img src="https://i.ibb.co/twW4NVj6/image.png" alt="Home"></a><span>الرئيسية</span></li>
-      <li><a href="#services"><img src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png" alt="Services"></a><span>خدماتنا</span></li>
-      <li><a href="#about"><img src="https://i.ibb.co/0J9tL0v/about.png" alt="About"></a><span>عن الشركة</span></li>
-      <li><a href="#portfolio"><img src="https://i.ibb.co/2nV9rXZ/portfolio.png" alt="Portfolio"></a><span>أعمالنا</span></li>
-      <li><a href="#contact"><img src="https://i.ibb.co/3Fh1pW7/contact.png" alt="Contact"></a><span>تواصل معنا</span></li>
+      <li>
+        <a href="#home">
+          <img 
+            src="https://i.ibb.co/twW4NVj6/image.png"
+            data-dark="https://i.ibb.co/twW4NVj6/image.png"
+            data-light="https://i.ibb.co/YjTdc92/image-black.png"
+            alt="Home">
+        </a>
+        <span>الرئيسية</span>
+      </li>
+
+      <li>
+        <a href="#services">
+          <img 
+            src="https://i.ibb.co/Wp5yNsGZ/o-lhj.png"
+            data-dark="https://i.ibb.co/Wp5yNsGZ/o-lhj.png"
+            data-light="https://i.ibb.co/vX9jmZV/o-lhj-black.png"
+            alt="Services">
+        </a>
+        <span>خدماتنا</span>
+      </li>
+
+      <li>
+        <a href="#about">
+          <img 
+            src="https://i.ibb.co/0J9tL0v/about.png"
+            data-dark="https://i.ibb.co/0J9tL0v/about.png"
+            data-light="https://i.ibb.co/q5g8KCB/about-black.png"
+            alt="About">
+        </a>
+        <span>عن الشركة</span>
+      </li>
+
+      <li>
+        <a href="#portfolio">
+          <img 
+            src="https://i.ibb.co/2nV9rXZ/portfolio.png"
+            data-dark="https://i.ibb.co/2nV9rXZ/portfolio.png"
+            data-light="https://i.ibb.co/3n7jhF4/portfolio-black.png"
+            alt="Portfolio">
+        </a>
+        <span>أعمالنا</span>
+      </li>
+
+      <li>
+        <a href="#contact">
+          <img 
+            src="https://i.ibb.co/3Fh1pW7/contact.png"
+            data-dark="https://i.ibb.co/3Fh1pW7/contact.png"
+            data-light="https://i.ibb.co/k5Ntx2G/contact-black.png"
+            alt="Contact">
+        </a>
+        <span>تواصل معنا</span>
+      </li>
     </ul>
+
     <button class="mode-toggle" id="modeToggle">
       <img id="modeIcon" src="https://i.ibb.co/7JdghcR/moon.png" alt="toggle mode">
     </button>
   </nav>
 
-  <!-- ---------- الهيدر ---------- -->
-  <header id="home">
-    <div id="vanta"></div>
-    <div class="header-content">
-      <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="WUSOOLY Logo">
-      <p>أرباح بلا حدود</p>
-    </div>
-  </header>
-
-  <!-- ---------- عداد الزبائن ---------- -->
-  <div class="users-section">
-    <img src="https://i.ibb.co/6cHZWgMv/image.png" alt="User Logo">
-    <div class="counter" id="userCounter">0</div>
-    <p>زبون</p>
-  </div>
-
-  <!-- ---------- المميزات ---------- -->
-  <div class="features">
-    <h2>مميزاتنا</h2>
-    <div class="feature-cards">
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 1"><p>الميزة الأولى</p></div>
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 2"><p>الميزة الثانية</p></div>
-      <div class="feature-card"><img src="https://via.placeholder.com/250x150" alt="Feature 3"><p>الميزة الثالثة</p></div>
-    </div>
-  </div>
-
-  <!-- ---------- سكريبتات ---------- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://unpkg.com/vanta@latest/dist/vanta.net.min.js"></script>
   <script>
-    let vantaEffect;
-    function initVanta(bg) {
-      if (vantaEffect) vantaEffect.destroy();
-      vantaEffect = VANTA.NET({
-        el: "#vanta",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        color: 0x1a73e8,
-        backgroundColor: bg,
-        points: 12.00,
-        maxDistance: 20.00,
-        spacing: 18.00
+    const body = document.body;
+    const icon = document.getElementById("modeIcon");
+    const imgs = document.querySelectorAll("nav img[data-dark]");
+    const saved = localStorage.getItem("theme");
+
+    function updateImages(isLight) {
+      imgs.forEach(img => {
+        img.src = isLight ? img.dataset.light : img.dataset.dark;
       });
     }
 
-    // الوضع الافتراضي
-    const body = document.body;
-    const icon = document.getElementById("modeIcon");
-    const saved = localStorage.getItem("theme");
+    // تحميل المود المحفوظ
     if (saved === "light") {
       body.classList.add("light-mode");
       icon.src = "https://i.ibb.co/PDK9yXt/sun.png";
-      initVanta(0xffffff);
+      updateImages(true);
     } else {
-      initVanta(0x111111);
+      updateImages(false);
     }
 
     // تبديل المود
     document.getElementById("modeToggle").addEventListener("click", () => {
       body.classList.toggle("light-mode");
-      const light = body.classList.contains("light-mode");
-      icon.src = light ? "https://i.ibb.co/PDK9yXt/sun.png" : "https://i.ibb.co/7JdghcR/moon.png";
-      localStorage.setItem("theme", light ? "light" : "dark");
-      initVanta(light ? 0xffffff : 0x111111);
-    });
-
-    // عداد الزبائن
-    let c = 0, t = 230;
-    const counter = document.getElementById("userCounter");
-    (function countUp() {
-      if (c < t) {
-        c++;
-        counter.textContent = c;
-        requestAnimationFrame(countUp);
-      }
-    })();
-
-    // اخفاء الشريط عند النزول
-    let lastScroll = 0;
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      const current = window.pageYOffset;
-      if (current > lastScroll && current > 150) navbar.classList.add("hidden");
-      else navbar.classList.remove("hidden");
-      lastScroll = current;
+      const isLight = body.classList.contains("light-mode");
+      icon.src = isLight ? "https://i.ibb.co/CprDWJ3M/LIGHTMODE.png" : "https://i.ibb.co/h1J7JqCp/DARKMODE.png";
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      updateImages(isLight);
     });
   </script>
 </body>
